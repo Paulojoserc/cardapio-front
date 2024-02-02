@@ -1,17 +1,17 @@
 
 import './App.css'
 import { Card } from './components/card/card'
+import { useFoodData } from './hooks/useFoodData';
 import { FoodData } from './interface/FoodData'
 
 function App() {
-  const data: FoodData[] =[];
+  const {data}= useFoodData();
 
   return (
-    <>
-      <div className="container">
+        <div className="container">
         <h1>Cardápio</h1>
         <div className="card-grid">
-          {data.map(foodData => 
+          {data?.map(foodData => 
           <Card 
             price={foodData.price}
             title={foodData.title}
@@ -20,10 +20,8 @@ function App() {
           )}
         </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+     
+    
   )
 }
 
